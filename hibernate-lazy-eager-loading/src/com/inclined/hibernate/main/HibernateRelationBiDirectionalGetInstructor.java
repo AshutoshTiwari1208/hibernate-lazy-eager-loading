@@ -39,7 +39,7 @@ public class HibernateRelationBiDirectionalGetInstructor {
 			session.close();
 			
 			// works because lazy data already loaded into instructor object !!
-			System.out.println("!!!!!:: After Closing Courses"+ instructor.getCourse());
+			// System.out.println("!!!!!:: After Closing Courses"+ instructor.getCourse());
 
 		}
 		// Always close the session (session.close), factory.close() won't close the session ( if finally is used )
