@@ -30,10 +30,17 @@ public class HibernateRelationBiDirectionalGetInstructor {
 			// Only benefit is only 1 time db call, rest all code is just showing the data.
 			Instructor instructor = session.get(Instructor.class, 7);
 			System.out.println("XXXXX:: Instructor"+ instructor);
-			System.out.println("XXXXX:: Courses"+ instructor.getCourse());
 			
+			System.out.println("XXXXX:: Courses"+ instructor.getCourse());
+
 			// commit Transaction
 			session.getTransaction().commit();	
+		
+			session.close();
+			
+			// works because lazy data already loaded into instructor object !!
+			System.out.println("!!!!!:: After Closing Courses"+ instructor.getCourse());
+
 		}
 		// Always close the session (session.close), factory.close() won't close the session ( if finally is used )
 		// , As to prevent leaks. And keep application running ! 
